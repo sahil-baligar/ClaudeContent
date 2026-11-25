@@ -1,0 +1,623 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/sahil-baligar/ClaudeContent/map-stories/schema/story.schema.json",
+  "title": "Map story spec",
+  "description": "One video = one JSON file. A story is a list of beats; each beat is one narrated sentence or two, one camera move and a few overlays. See PLAYBOOK.md.",
+  "type": "object",
+  "required": [
+    "id",
+    "title",
+    "places",
+    "beats"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "slug; output files are <id>_16x9.mp4 etc."
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 40,
+      "description": "title cartouche over the opening globe"
+    },
+    "subtitle": {
+      "type": "string",
+      "maxLength": 50
+    },
+    "style": {
+      "enum": [
+        "light",
+        "antique",
+        "atlas",
+        "warroom",
+        "dark",
+        "satellite"
+      ],
+      "default": "light",
+      "description": "light = DEFAULT (true-white land, pale blue sea, ink coast). Optional themes: antique (parchment), atlas (school atlas), warroom / dark (dark slate), satellite (NASA Blue Marble, needs a download)"
+    },
+    "style_overrides": {
+      "type": "object",
+      "description": "override any palette key of the style, e.g. {\"accent\": [180, 40, 30]}"
+    },
+    "aspects": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "16:9",
+          "9:16",
+          "1:1",
+          "4:5"
+        ]
+      },
+      "default": [
+        "16:9"
+      ]
+    },
+    "fps": {
+      "type": "integer",
+      "default": 30
+    },
+    "captions": {
+      "type": "boolean",
+      "default": true
+    },
+    "map": {
+      "type": "object",
+      "properties": {
+        "borders": {
+          "type": "boolean",
+          "default": true,
+          "description": "modern Natural Earth borders; turn OFF for any story before ~1950"
+        },
+        "rivers": {
+          "type": "boolean",
+          "default": true
+        },
+        "graticule": {
+          "type": "boolean",
+          "default": true
+        }
+      }
+    },
+    "voice": {
+      "type": "object",
+      "properties": {
+        "engine": {
+          "enum": [
+            "kokoro",
+            "piper",
+            "command",
+            "files",
+            "none"
+          ],
+          "default": "none"
+        },
+        "model": {
+          "type": "string",
+          "description": "kokoro: folder with kokoro-v1.0.onnx + voices-v1.0.bin; piper: .onnx path or bare voice name (both also found via MAPSTORY_VOICES / engine/voices)"
+        },
+        "speaker": {
+          "type": [
+            "integer",
+            "string",
+            "null"
+          ],
+          "description": "kokoro voice name (e.g. am_fenrir) or piper speaker id"
+        },
+        "speed": {
+          "type": "number",
+          "default": 1.0
+        },
+        "credit": {
+          "type": "string",
+          "description": "printed on the end card"
+        },
+        "command": {
+          "type": "string",
+          "description": "engine=command (bring your own voice: any TTS or voice clone): a command with {text} and {out} placeholders that writes a wav"
+        }
+      }
+    },
+    "music": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "default": null,
+      "description": "optional bed, ducked under the voice. Only CC0 / licensed tracks. Default none.",
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "gain_db": {
+          "type": "number",
+          "default": -18
+        },
+        "credit": {
+          "type": "string"
+        }
+      }
+    },
+    "places": {
+      "type": "object",
+      "description": "every location the story mentions, keyed by an id used everywhere else",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "name",
+          "lat",
+          "lon"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "the name AT THE TIME of the story (Kovno, not Kaunas)"
+          },
+          "lat": {
+            "type": "number",
+            "minimum": -90,
+            "maximum": 90
+          },
+          "lon": {
+            "type": "number",
+            "minimum": -180,
+            "maximum": 180
+          },
+          "kind": {
+            "enum": [
+              "city",
+              "capital",
+              "battle",
+              "port",
+              "camp",
+              "x",
+              "dot",
+              "region"
+            ],
+            "default": "city"
+          },
+          "side": {
+            "enum": [
+              "r",
+              "l"
+            ],
+            "default": "r",
+            "description": "label side"
+          },
+          "note": {
+            "type": "string",
+            "maxLength": 24,
+            "description": "small handwritten note under the label (a date)"
+          }
+        }
+      }
+    },
+    "areas": {
+      "type": "object",
+      "description": "custom highlight polygons (historic zones, empires); schematic, say so in notes",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "polygon"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "polygon": {
+            "type": "array",
+            "minItems": 3,
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 2,
+              "maxItems": 2
+            }
+          }
+        }
+      }
+    },
+    "routes": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "path"
+        ],
+        "properties": {
+          "path": {
+            "type": "array",
+            "minItems": 2,
+            "items": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "minItems": 2,
+                  "maxItems": 2
+                }
+              ]
+            },
+            "description": "place ids or [lat, lon] waypoints; drawn as smoothed great circles"
+          },
+          "color": {
+            "oneOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "description": "index into the style's route colours or #rrggbb"
+          },
+          "width": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 2,
+                "maxItems": 2
+              }
+            ],
+            "description": "px at 1080p; [start, end] tapers the line (Minard style: width = people)"
+          },
+          "style": {
+            "enum": [
+              "solid",
+              "dashed"
+            ]
+          },
+          "head": {
+            "enum": [
+              "arrow",
+              "dot",
+              "ship",
+              "plane",
+              "army",
+              "none"
+            ]
+          },
+          "lift": {
+            "type": "number",
+            "description": "arc height for flights, 0.0-0.05"
+          },
+          "offset_km": {
+            "type": "number",
+            "description": "draw beside the true line (e.g. a retreat next to an advance)"
+          }
+        }
+      }
+    },
+    "beats": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 30,
+      "items": {
+        "type": "object",
+        "properties": {
+          "vo": {
+            "type": "string",
+            "description": "spoken text (numbers and hard names spelled the way they should be SAID)"
+          },
+          "caption": {
+            "type": "string",
+            "description": "on-screen text if it differs from vo (digits, real spellings)"
+          },
+          "audio": {
+            "type": "string",
+            "description": "voice.engine=files: recording for this beat"
+          },
+          "min": {
+            "type": "number",
+            "description": "minimum beat length in seconds"
+          },
+          "hold": {
+            "type": "number",
+            "default": 0.33,
+            "description": "silence after the line (lead 0.12 + hold keeps voice gaps under 0.5 s)"
+          },
+          "camera": {
+            "type": "object",
+            "properties": {
+              "to": {
+                "description": "place id, [lat, lon], or a list of place ids to frame together"
+              },
+              "zoom": {
+                "oneOf": [
+                  {
+                    "enum": [
+                      "globe",
+                      "continent",
+                      "country",
+                      "region",
+                      "city",
+                      "street"
+                    ]
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "description": "named level or the radius in degrees that must stay visible"
+              },
+              "tilt": {
+                "type": "number",
+                "description": "0 = top-down, 25-36 = cinematic"
+              },
+              "move": {
+                "enum": [
+                  "fly",
+                  "cut",
+                  "follow"
+                ],
+                "default": "fly"
+              },
+              "route": {
+                "type": "string",
+                "description": "move=follow: the route whose head the camera rides"
+              },
+              "pad": {
+                "type": "number",
+                "default": 1.3
+              },
+              "push": {
+                "type": "number",
+                "default": 0.08,
+                "description": "slow push-in while the beat holds"
+              },
+              "hop": {
+                "type": "number",
+                "default": 0.9,
+                "description": "how far the camera pulls out on long flights"
+              },
+              "fly_max": {
+                "type": "number",
+                "default": 3.0
+              },
+              "drift": {
+                "type": "number",
+                "default": 1.0,
+                "description": "constant-speed sideways drift while the shot holds (0 = none; holds should never be still)"
+              }
+            }
+          },
+          "year": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "description": "top-left year counter; flips when it changes"
+          },
+          "header": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "kicker": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string",
+                    "maxLength": 24
+                  }
+                }
+              }
+            ]
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "highlight": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Natural Earth ADMIN country names or area ids"
+          },
+          "draw": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "object",
+                  "required": [
+                    "route"
+                  ],
+                  "properties": {
+                    "route": {
+                      "type": "string"
+                    },
+                    "to": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1
+                    },
+                    "delay": {
+                      "type": "number"
+                    }
+                  }
+                }
+              ]
+            },
+            "description": "routes that animate during this beat; 'to' = progress reached at the end of the beat"
+          },
+          "card": {
+            "oneOf": [
+              {
+                "$ref": "#/$defs/card"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/card"
+                }
+              }
+            ]
+          },
+          "stamp": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "string",
+                    "maxLength": 18
+                  },
+                  "at": {
+                    "type": "number"
+                  },
+                  "rot": {
+                    "type": "number"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "notes": {
+      "type": "string"
+    },
+    "sfx": {
+      "oneOf": [
+        {
+          "enum": [
+            "synth",
+            false
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "dir": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "dir"
+          ]
+        }
+      ],
+      "default": "synth",
+      "description": "\"synth\" = built-in generated effects, false = voice only, {\"dir\": ...} = your own licensed samples named whoosh*, pop*, tick*, stamp*, scratch*, count*"
+    }
+  },
+  "$defs": {
+    "card": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "enum": [
+            "fact",
+            "stat",
+            "quote",
+            "portrait"
+          ],
+          "default": "fact"
+        },
+        "at": {
+          "type": "number",
+          "default": 0.3,
+          "description": "when it enters, as a fraction of the beat"
+        },
+        "kicker": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "body": {
+          "type": "string",
+          "maxLength": 120
+        },
+        "value": {
+          "type": "number"
+        },
+        "from": {
+          "type": "number"
+        },
+        "prefix": {
+          "type": "string"
+        },
+        "unit": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "quote": {
+          "type": "string",
+          "maxLength": 140
+        },
+        "by": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string",
+          "description": "portrait: path to a public-domain / licensed image; put its credit in sources"
+        },
+        "side": {
+          "enum": [
+            "left",
+            "right",
+            "center"
+          ]
+        },
+        "y": {
+          "type": "number"
+        },
+        "width": {
+          "type": "number"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,400 @@
+{
+  "id": "magellan-1519",
+  "title": "Around the World, Once",
+  "subtitle": "Magellan and Elcano, 1519-1522",
+  "style": "antique",
+  "aspects": [
+    "16:9",
+    "9:16"
+  ],
+  "fps": 30,
+  "voice": {
+    "engine": "kokoro",
+    "speaker": "am_fenrir",
+    "speed": 1.2,
+    "credit": "Kokoro-82M TTS, voice am_fenrir (Apache-2.0)"
+  },
+  "music": null,
+  "sfx": false,
+  "captions": true,
+  "map": {
+    "borders": false,
+    "rivers": true,
+    "graticule": true
+  },
+  "places": {
+    "sanlucar": {
+      "name": "Sanlucar de Barrameda",
+      "lat": 36.78,
+      "lon": -6.35,
+      "kind": "port",
+      "side": "l"
+    },
+    "rio": {
+      "name": "Rio de Janeiro bay",
+      "lat": -22.9,
+      "lon": -43.2,
+      "kind": "port"
+    },
+    "julian": {
+      "name": "San Julian",
+      "lat": -49.3,
+      "lon": -67.7,
+      "kind": "camp",
+      "note": "winter 1520"
+    },
+    "strait": {
+      "name": "The Strait",
+      "lat": -53.6,
+      "lon": -70.9,
+      "kind": "x",
+      "note": "Oct-Nov 1520"
+    },
+    "guam": {
+      "name": "Guam",
+      "lat": 13.44,
+      "lon": 144.79,
+      "kind": "port"
+    },
+    "mactan": {
+      "name": "Mactan",
+      "lat": 10.29,
+      "lon": 123.97,
+      "kind": "battle",
+      "note": "27 April 1521"
+    },
+    "tidore": {
+      "name": "Tidore (Spice Islands)",
+      "lat": 0.68,
+      "lon": 127.4,
+      "kind": "port"
+    },
+    "cape": {
+      "name": "Cape of Good Hope",
+      "lat": -34.36,
+      "lon": 18.47,
+      "kind": "x",
+      "side": "l"
+    },
+    "pacific": {
+      "name": "Pacific Ocean",
+      "lat": -12.0,
+      "lon": -140.0,
+      "kind": "region"
+    }
+  },
+  "routes": {
+    "west": {
+      "path": [
+        "sanlucar",
+        [
+          28.1,
+          -15.8
+        ],
+        [
+          -5.0,
+          -32.0
+        ],
+        "rio",
+        [
+          -35.5,
+          -55.0
+        ],
+        "julian",
+        "strait",
+        [
+          -45.0,
+          -82.0
+        ],
+        [
+          -20.0,
+          -110.0
+        ],
+        [
+          -12.0,
+          -150.0
+        ],
+        [
+          5.0,
+          170.0
+        ],
+        "guam",
+        [
+          10.9,
+          125.8
+        ],
+        "mactan"
+      ],
+      "color": 0,
+      "width": 8,
+      "style": "dashed",
+      "head": "ship"
+    },
+    "home": {
+      "path": [
+        "mactan",
+        "tidore",
+        [
+          -9.0,
+          124.0
+        ],
+        [
+          -25.0,
+          85.0
+        ],
+        [
+          -36.0,
+          40.0
+        ],
+        "cape",
+        [
+          16.0,
+          -24.0
+        ],
+        "sanlucar"
+      ],
+      "color": 1,
+      "width": 8,
+      "style": "dashed",
+      "head": "ship"
+    }
+  },
+  "beats": [
+    {
+      "vo": "Five ships left Spain. Three years later, one came back, and it had sailed all the way around the world.",
+      "camera": {
+        "to": [
+          10.0,
+          -30.0
+        ],
+        "zoom": "globe",
+        "tilt": 0
+      }
+    },
+    {
+      "vo": "On the twentieth of September, fifteen nineteen, Ferdinand Magellan sails from Sanlucar with five ships and about two hundred and seventy men.",
+      "caption": "On 20 September 1519, Ferdinand Magellan sails from Sanlucar with five ships and about 270 men.",
+      "camera": {
+        "to": "sanlucar",
+        "zoom": 6,
+        "tilt": 30
+      },
+      "year": 1519,
+      "header": {
+        "kicker": "September 1519",
+        "title": "Five Ships"
+      },
+      "labels": [
+        "sanlucar"
+      ],
+      "card": {
+        "kind": "stat",
+        "kicker": "The fleet",
+        "value": 270,
+        "label": "men, roughly, on five ships",
+        "at": 0.45
+      }
+    },
+    {
+      "vo": "He is looking for a way west to the Spice Islands. The fleet crosses the Atlantic and works down the coast of South America.",
+      "camera": {
+        "to": [
+          "sanlucar",
+          "rio"
+        ],
+        "tilt": 20,
+        "pad": 1.2
+      },
+      "header": {
+        "kicker": "1519",
+        "title": "Across the Atlantic"
+      },
+      "labels": [
+        "rio"
+      ],
+      "draw": [
+        {
+          "route": "west",
+          "to": 0.2
+        }
+      ]
+    },
+    {
+      "vo": "They spend a bitter winter at San Julian, then find the passage. It takes over a month to thread the strait that now carries his name.",
+      "camera": {
+        "move": "follow",
+        "route": "west",
+        "to": "strait",
+        "zoom": 9,
+        "tilt": 30
+      },
+      "year": 1520,
+      "header": {
+        "kicker": "October-November 1520",
+        "title": "The Strait"
+      },
+      "labels": [
+        "julian",
+        "strait"
+      ],
+      "draw": [
+        {
+          "route": "west",
+          "to": 0.33
+        }
+      ]
+    },
+    {
+      "vo": "Then the Pacific. Nobody knows it is this big. They sail for more than three months without fresh food, and men die of scurvy.",
+      "camera": {
+        "to": "pacific",
+        "zoom": 40,
+        "tilt": 10
+      },
+      "header": {
+        "kicker": "1520-1521",
+        "title": "The Pacific"
+      },
+      "labels": [
+        "pacific",
+        "guam"
+      ],
+      "draw": [
+        {
+          "route": "west",
+          "to": 0.88
+        }
+      ],
+      "stamp": {
+        "text": "98 days",
+        "at": 0.7
+      }
+    },
+    {
+      "vo": "In the Philippines, Magellan takes sides in a local fight. On the twenty-seventh of April, fifteen twenty-one, he is killed at Mactan.",
+      "caption": "In the Philippines, Magellan takes sides in a local fight. On 27 April 1521, he is killed at Mactan.",
+      "camera": {
+        "to": "mactan",
+        "zoom": 5,
+        "tilt": 32
+      },
+      "year": 1521,
+      "header": {
+        "kicker": "27 April 1521",
+        "title": "Mactan"
+      },
+      "highlight": [
+        "Philippines"
+      ],
+      "labels": [
+        "mactan"
+      ],
+      "draw": [
+        {
+          "route": "west",
+          "to": 1.0
+        }
+      ],
+      "card": {
+        "kind": "portrait",
+        "name": "Ferdinand Magellan",
+        "role": "Captain-general, killed at Mactan",
+        "at": 0.3
+      }
+    },
+    {
+      "vo": "Juan Sebastian Elcano takes the last good ship, the Victoria, loads it with cloves in the Spice Islands, and keeps going west.",
+      "camera": {
+        "to": [
+          "mactan",
+          "tidore"
+        ],
+        "tilt": 30,
+        "pad": 1.8
+      },
+      "header": {
+        "kicker": "1521",
+        "title": "The Victoria"
+      },
+      "labels": [
+        "tidore"
+      ],
+      "draw": [
+        {
+          "route": "home",
+          "to": 0.12
+        }
+      ]
+    },
+    {
+      "vo": "Across the Indian Ocean, around the Cape of Good Hope, and up the coast of Africa.",
+      "camera": {
+        "to": [
+          "tidore",
+          "cape"
+        ],
+        "tilt": 15,
+        "pad": 1.1
+      },
+      "header": {
+        "kicker": "1522",
+        "title": "The Long Way Home"
+      },
+      "labels": [
+        "cape"
+      ],
+      "draw": [
+        {
+          "route": "home",
+          "to": 0.75
+        }
+      ]
+    },
+    {
+      "vo": "On the sixth of September, fifteen twenty-two, the Victoria reaches Spain with eighteen men. The first voyage around the world.",
+      "caption": "On 6 September 1522, the Victoria reaches Spain with 18 men. The first voyage around the world.",
+      "camera": {
+        "to": "sanlucar",
+        "zoom": 8,
+        "tilt": 28
+      },
+      "year": 1522,
+      "header": {
+        "kicker": "6 September 1522",
+        "title": "Home"
+      },
+      "labels": [
+        "sanlucar"
+      ],
+      "draw": [
+        {
+          "route": "home",
+          "to": 1.0
+        }
+      ],
+      "card": {
+        "kind": "stat",
+        "kicker": "Came home",
+        "value": 18,
+        "from": 270,
+        "label": "men on the Victoria",
+        "at": 0.4
+      }
+    }
+  ],
+  "sources": [
+    {
+      "title": "Wikipedia: Magellan expedition",
+      "url": "https://en.wikipedia.org/wiki/Magellan_expedition"
+    },
+    {
+      "title": "Wikipedia: Battle of Mactan",
+      "url": "https://en.wikipedia.org/wiki/Battle_of_Mactan"
+    },
+    {
+      "title": "Wikipedia: Juan Sebastian Elcano",
+      "url": "https://en.wikipedia.org/wiki/Juan_Sebasti%C3%A1n_Elcano"
+    }
+  ],
+  "notes": "Route is schematic through the documented stops. Crew figures vary by source (about 270 out, 18 back on the Victoria in September 1522). The Philippines outline is the modern country, shown for orientation. Check every date against the sources before publishing."
+}

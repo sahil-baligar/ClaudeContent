@@ -1,0 +1,14 @@
+# render output and caches (rebuilt automatically)
+out/
+**/engine/data/cache/
+**/engine/voices/
+__pycache__/
+*.pyc
+# never commit secrets or local config
+.env
+.env.*
+*.local.json
+# scratch
+Delete/
+.DS_Store
+Thumbs.db

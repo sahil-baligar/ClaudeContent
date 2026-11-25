@@ -1,0 +1,442 @@
+{
+  "id": "napoleon-1812",
+  "title": "The March on Moscow",
+  "subtitle": "Napoleon's Russian campaign, 1812",
+  "style": "light",
+  "aspects": [
+    "16:9",
+    "9:16"
+  ],
+  "fps": 30,
+  "voice": {
+    "engine": "kokoro",
+    "speaker": "am_fenrir",
+    "speed": 1.2,
+    "credit": "Kokoro-82M TTS, voice am_fenrir (Apache-2.0)"
+  },
+  "music": null,
+  "sfx": false,
+  "captions": true,
+  "map": {
+    "borders": false,
+    "rivers": true,
+    "graticule": true
+  },
+  "places": {
+    "kovno": {
+      "name": "Kovno",
+      "lat": 54.898,
+      "lon": 23.904,
+      "kind": "city",
+      "side": "l"
+    },
+    "vilna": {
+      "name": "Vilna",
+      "lat": 54.687,
+      "lon": 25.28,
+      "kind": "city"
+    },
+    "vitebsk": {
+      "name": "Vitebsk",
+      "lat": 55.19,
+      "lon": 30.205,
+      "kind": "city"
+    },
+    "smolensk": {
+      "name": "Smolensk",
+      "lat": 54.782,
+      "lon": 32.045,
+      "kind": "battle"
+    },
+    "borodino": {
+      "name": "Borodino",
+      "lat": 55.523,
+      "lon": 35.818,
+      "kind": "battle",
+      "note": "7 Sept 1812"
+    },
+    "moscow": {
+      "name": "Moscow",
+      "lat": 55.756,
+      "lon": 37.617,
+      "kind": "capital"
+    },
+    "maloyaroslavets": {
+      "name": "Maloyaroslavets",
+      "lat": 55.01,
+      "lon": 36.465,
+      "kind": "battle",
+      "side": "l"
+    },
+    "berezina": {
+      "name": "Berezina",
+      "lat": 54.32,
+      "lon": 28.37,
+      "kind": "battle",
+      "note": "26-29 Nov 1812"
+    },
+    "russia": {
+      "name": "Russian Empire",
+      "lat": 56.6,
+      "lon": 33.5,
+      "kind": "region"
+    }
+  },
+  "routes": {
+    "advance": {
+      "path": [
+        "kovno",
+        "vilna",
+        "vitebsk",
+        "smolensk",
+        [
+          55.21,
+          34.3
+        ],
+        "borodino",
+        "moscow"
+      ],
+      "color": "#b5762f",
+      "width": [
+        30,
+        9
+      ],
+      "head": "army",
+      "label": "advance"
+    },
+    "retreat": {
+      "path": [
+        "moscow",
+        "maloyaroslavets",
+        [
+          55.21,
+          34.3
+        ],
+        "smolensk",
+        [
+          54.509,
+          30.426
+        ],
+        "berezina",
+        "vilna",
+        "kovno"
+      ],
+      "color": "#2b211a",
+      "width": [
+        9,
+        3
+      ],
+      "head": "army",
+      "label": "retreat",
+      "offset_km": -22
+    }
+  },
+  "beats": [
+    {
+      "vo": "In eighteen sixty-nine, a French engineer drew one map that tells the whole story of an army. This is that story.",
+      "caption": "In 1869, a French engineer drew one map that tells the whole story of an army. This is that story.",
+      "camera": {
+        "to": [
+          53.0,
+          24.0
+        ],
+        "zoom": "globe",
+        "tilt": 0
+      }
+    },
+    {
+      "vo": "June, eighteen twelve. Napoleon gathers the largest army Europe has ever seen on the banks of the Neman river.",
+      "caption": "June 1812. Napoleon gathers the largest army Europe has ever seen on the banks of the Neman river.",
+      "camera": {
+        "to": "kovno",
+        "zoom": 5.0,
+        "tilt": 32
+      },
+      "year": 1812,
+      "header": {
+        "kicker": "June 1812",
+        "title": "The Crossing"
+      },
+      "labels": [
+        "kovno"
+      ],
+      "card": {
+        "kind": "stat",
+        "kicker": "Minard's count",
+        "value": 422000,
+        "from": 0,
+        "label": "soldiers cross into Russia",
+        "at": 0.3
+      }
+    },
+    {
+      "vo": "There is no great battle at the border. The Russian armies simply fall back, deeper and deeper, burning what they leave behind.",
+      "camera": {
+        "to": [
+          "kovno",
+          "smolensk"
+        ],
+        "tilt": 30,
+        "pad": 1.25
+      },
+      "header": {
+        "kicker": "Summer 1812",
+        "title": "The Long Road East"
+      },
+      "labels": [
+        "kovno",
+        "vilna",
+        "vitebsk",
+        "russia"
+      ],
+      "draw": [
+        {
+          "route": "advance",
+          "to": 0.45
+        }
+      ]
+    },
+    {
+      "vo": "In August, the two sides finally clash at Smolensk. The city burns, and the Russians retreat again.",
+      "camera": {
+        "to": "smolensk",
+        "zoom": 4.5,
+        "tilt": 34
+      },
+      "header": {
+        "kicker": "August 1812",
+        "title": "Smolensk"
+      },
+      "labels": [
+        "smolensk",
+        "vitebsk"
+      ],
+      "stamp": {
+        "text": "Smolensk burns",
+        "at": 0.45
+      },
+      "draw": [
+        {
+          "route": "advance",
+          "to": 0.57
+        }
+      ]
+    },
+    {
+      "vo": "On the seventh of September, at Borodino, about seventy-five miles from Moscow, comes one of the most deadly days of the Napoleonic wars.",
+      "caption": "On 7 September, at Borodino, about 75 miles from Moscow, comes one of the most deadly days of the Napoleonic Wars.",
+      "camera": {
+        "to": [
+          "borodino",
+          "moscow"
+        ],
+        "tilt": 34,
+        "pad": 1.6
+      },
+      "header": {
+        "kicker": "7 September 1812",
+        "title": "Borodino"
+      },
+      "labels": [
+        "borodino",
+        "moscow"
+      ],
+      "draw": [
+        {
+          "route": "advance",
+          "to": 0.88
+        }
+      ],
+      "stamp": {
+        "text": "Borodino",
+        "at": 0.55,
+        "rot": 6
+      }
+    },
+    {
+      "vo": "A week later, Napoleon rides into Moscow. He expects a surrender. Instead he finds the city almost empty, and within a day, on fire.",
+      "camera": {
+        "to": "moscow",
+        "zoom": 4.0,
+        "tilt": 36
+      },
+      "header": {
+        "kicker": "14 September 1812",
+        "title": "Moscow"
+      },
+      "labels": [
+        "moscow"
+      ],
+      "draw": [
+        {
+          "route": "advance",
+          "to": 1.0
+        }
+      ],
+      "card": {
+        "kind": "stat",
+        "kicker": "Minard's count",
+        "value": 100000,
+        "from": 422000,
+        "label": "soldiers are left when they reach Moscow",
+        "at": 0.25
+      },
+      "stamp": {
+        "text": "Moscow burns",
+        "at": 0.78,
+        "rot": -6
+      }
+    },
+    {
+      "vo": "He waits five weeks for a peace offer that never comes. On the nineteenth of October, the army turns for home.",
+      "caption": "He waits five weeks for a peace offer that never comes. On 19 October, the army turns for home.",
+      "camera": {
+        "to": [
+          "moscow",
+          "maloyaroslavets"
+        ],
+        "tilt": 30,
+        "pad": 1.8
+      },
+      "header": {
+        "kicker": "19 October 1812",
+        "title": "The Retreat"
+      },
+      "labels": [
+        "moscow",
+        "maloyaroslavets"
+      ],
+      "draw": [
+        {
+          "route": "retreat",
+          "to": 0.14
+        }
+      ]
+    },
+    {
+      "vo": "Then the Russian winter sets in. Snow, hunger and constant raids chase the column west, back along a road it had already stripped bare.",
+      "camera": {
+        "move": "follow",
+        "route": "retreat",
+        "to": "smolensk",
+        "zoom": 5.5,
+        "tilt": 30
+      },
+      "header": {
+        "kicker": "November 1812",
+        "title": "Winter"
+      },
+      "labels": [
+        "smolensk"
+      ],
+      "draw": [
+        {
+          "route": "retreat",
+          "to": 0.6
+        }
+      ]
+    },
+    {
+      "vo": "At the Berezina river, engineers stand in freezing water for hours to build two bridges, so the survivors can cross.",
+      "camera": {
+        "to": "berezina",
+        "zoom": 4.2,
+        "tilt": 36
+      },
+      "header": {
+        "kicker": "Late November 1812",
+        "title": "The Berezina"
+      },
+      "labels": [
+        "berezina"
+      ],
+      "draw": [
+        {
+          "route": "retreat",
+          "to": 0.72
+        }
+      ],
+      "card": {
+        "kind": "fact",
+        "kicker": "26-29 November 1812",
+        "title": "Éblé's bridges",
+        "body": "General Éblé's pontoon engineers work in the icy river to build two bridges for the crossing.",
+        "at": 0.25
+      }
+    },
+    {
+      "vo": "By December, Minard's chart shows about ten thousand men coming back across the Neman. Out of four hundred and twenty-two thousand.",
+      "caption": "By December, Minard's chart shows about 10,000 men coming back across the Neman. Out of 422,000.",
+      "camera": {
+        "to": [
+          "berezina",
+          "kovno"
+        ],
+        "tilt": 30,
+        "pad": 1.4
+      },
+      "header": {
+        "kicker": "December 1812",
+        "title": "The Neman"
+      },
+      "labels": [
+        "kovno",
+        "vilna"
+      ],
+      "draw": [
+        {
+          "route": "retreat",
+          "to": 1.0
+        }
+      ],
+      "card": {
+        "kind": "stat",
+        "kicker": "Minard's count",
+        "value": 10000,
+        "from": 422000,
+        "label": "soldiers make it back",
+        "at": 0.3
+      }
+    },
+    {
+      "vo": "One thick line going in. One thin black line coming out. That is how Charles Minard chose to remember them.",
+      "camera": {
+        "to": [
+          "kovno",
+          "moscow",
+          "berezina"
+        ],
+        "tilt": 20,
+        "pad": 1.5
+      },
+      "year": 1869,
+      "header": {
+        "kicker": "Paris, 1869",
+        "title": "Minard's Map"
+      },
+      "labels": [
+        "kovno",
+        "moscow"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "Wikipedia: French invasion of Russia",
+      "url": "https://en.wikipedia.org/wiki/French_invasion_of_Russia"
+    },
+    {
+      "title": "Wikipedia: Charles Joseph Minard",
+      "url": "https://en.wikipedia.org/wiki/Charles_Joseph_Minard"
+    },
+    {
+      "title": "Wikipedia: Battle of Borodino",
+      "url": "https://en.wikipedia.org/wiki/Battle_of_Borodino"
+    },
+    {
+      "title": "Wikipedia: Battle of Berezina",
+      "url": "https://en.wikipedia.org/wiki/Battle_of_Berezina"
+    }
+  ],
+  "notes": "Figures 422,000 / 100,000 / 10,000 are the numbers written on Minard's 1869 chart (historians' estimates vary). Routes are schematic, through the towns named on the chart. Rendered voice-only (\"sfx\": false); set \"sfx\": \"synth\" for the built-in effects."
+}

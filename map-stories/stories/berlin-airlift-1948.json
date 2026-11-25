@@ -1,0 +1,390 @@
+{
+  "id": "berlin-airlift-1948",
+  "title": "The City Fed From the Sky",
+  "subtitle": "The Berlin Airlift, 1948-1949",
+  "style": "warroom",
+  "aspects": [
+    "9:16",
+    "16:9"
+  ],
+  "fps": 30,
+  "voice": {
+    "engine": "kokoro",
+    "speaker": "am_fenrir",
+    "speed": 1.2,
+    "credit": "Kokoro-82M TTS, voice am_fenrir (Apache-2.0)"
+  },
+  "music": null,
+  "sfx": false,
+  "captions": true,
+  "map": {
+    "borders": false,
+    "rivers": true,
+    "graticule": true
+  },
+  "places": {
+    "berlin": {
+      "name": "West Berlin",
+      "lat": 52.5,
+      "lon": 13.3,
+      "kind": "capital"
+    },
+    "tempelhof": {
+      "name": "Tempelhof",
+      "lat": 52.47,
+      "lon": 13.4,
+      "kind": "dot"
+    },
+    "gatow": {
+      "name": "Gatow",
+      "lat": 52.47,
+      "lon": 13.14,
+      "kind": "dot",
+      "side": "l"
+    },
+    "tegel": {
+      "name": "Tegel",
+      "lat": 52.56,
+      "lon": 13.29,
+      "kind": "dot",
+      "side": "l"
+    },
+    "frankfurt": {
+      "name": "Frankfurt",
+      "lat": 50.03,
+      "lon": 8.57,
+      "kind": "city",
+      "side": "l"
+    },
+    "hamburg": {
+      "name": "Hamburg",
+      "lat": 53.55,
+      "lon": 9.99,
+      "kind": "city",
+      "side": "l"
+    },
+    "buckeburg": {
+      "name": "Buckeburg",
+      "lat": 52.28,
+      "lon": 9.05,
+      "kind": "city",
+      "side": "l"
+    },
+    "sovzone": {
+      "name": "Soviet zone",
+      "lat": 51.6,
+      "lon": 12.4,
+      "kind": "region"
+    }
+  },
+  "areas": {
+    "soviet-zone": {
+      "name": "Soviet occupation zone (schematic)",
+      "polygon": [
+        [
+          54.0,
+          10.9
+        ],
+        [
+          54.2,
+          12.0
+        ],
+        [
+          54.4,
+          13.2
+        ],
+        [
+          53.9,
+          14.2
+        ],
+        [
+          52.9,
+          14.15
+        ],
+        [
+          52.4,
+          14.6
+        ],
+        [
+          51.8,
+          14.7
+        ],
+        [
+          51.0,
+          15.0
+        ],
+        [
+          50.85,
+          14.3
+        ],
+        [
+          50.6,
+          13.9
+        ],
+        [
+          50.3,
+          12.3
+        ],
+        [
+          50.32,
+          11.9
+        ],
+        [
+          50.45,
+          10.8
+        ],
+        [
+          50.9,
+          10.0
+        ],
+        [
+          51.5,
+          10.3
+        ],
+        [
+          51.9,
+          10.6
+        ],
+        [
+          52.3,
+          10.95
+        ],
+        [
+          52.9,
+          10.8
+        ],
+        [
+          53.4,
+          10.75
+        ],
+        [
+          53.9,
+          10.9
+        ]
+      ]
+    }
+  },
+  "routes": {
+    "south": {
+      "path": [
+        "frankfurt",
+        [
+          51.4,
+          11.0
+        ],
+        "tempelhof"
+      ],
+      "color": 0,
+      "width": 6,
+      "head": "plane",
+      "lift": 0.0
+    },
+    "north": {
+      "path": [
+        "hamburg",
+        [
+          53.1,
+          11.8
+        ],
+        "gatow"
+      ],
+      "color": 0,
+      "width": 6,
+      "head": "plane"
+    },
+    "central": {
+      "path": [
+        "tegel",
+        [
+          52.4,
+          11.0
+        ],
+        "buckeburg"
+      ],
+      "color": 1,
+      "width": 5,
+      "style": "dashed",
+      "head": "plane"
+    }
+  },
+  "beats": [
+    {
+      "vo": "In nineteen forty-eight, more than two million people were cut off inside a city. The only way in was the sky.",
+      "caption": "In 1948, more than two million people were cut off inside a city. The only way in was the sky.",
+      "camera": {
+        "to": [
+          51.0,
+          12.0
+        ],
+        "zoom": "globe",
+        "tilt": 0
+      }
+    },
+    {
+      "vo": "After the Second World War, Germany is split into four zones. Berlin sits deep inside the Soviet zone, and it is split too.",
+      "camera": {
+        "to": "sovzone",
+        "zoom": 4.5,
+        "tilt": 25
+      },
+      "year": 1948,
+      "header": {
+        "kicker": "1945-1948",
+        "title": "A Divided City"
+      },
+      "highlight": [
+        "soviet-zone"
+      ],
+      "labels": [
+        "berlin",
+        "sovzone"
+      ]
+    },
+    {
+      "vo": "On the twenty-fourth of June, nineteen forty-eight, the Soviets close every road, railway and canal into West Berlin.",
+      "caption": "On 24 June 1948, the Soviets close every road, railway and canal into West Berlin.",
+      "camera": {
+        "to": "berlin",
+        "zoom": 1.2,
+        "tilt": 32
+      },
+      "header": {
+        "kicker": "24 June 1948",
+        "title": "Blockade"
+      },
+      "highlight": [
+        "soviet-zone"
+      ],
+      "labels": [
+        "berlin"
+      ],
+      "stamp": {
+        "text": "Blockade",
+        "at": 0.6
+      }
+    },
+    {
+      "vo": "The Western Allies answer with aircraft. Three air corridors, each about twenty miles wide, are the only routes allowed in and out.",
+      "camera": {
+        "to": [
+          "frankfurt",
+          "hamburg",
+          "berlin"
+        ],
+        "tilt": 28,
+        "pad": 1.3
+      },
+      "header": {
+        "kicker": "June 1948",
+        "title": "Three Corridors"
+      },
+      "highlight": [
+        "soviet-zone"
+      ],
+      "labels": [
+        "frankfurt",
+        "hamburg",
+        "buckeburg",
+        "berlin"
+      ],
+      "draw": [
+        "south",
+        "north",
+        {
+          "route": "central",
+          "delay": 1.0
+        }
+      ]
+    },
+    {
+      "vo": "Planes land at Tempelhof, Gatow and a brand new airfield at Tegel, at the peak one every few minutes, carrying coal, flour and milk.",
+      "camera": {
+        "to": "berlin",
+        "zoom": 0.45,
+        "tilt": 36
+      },
+      "header": {
+        "kicker": "1948-1949",
+        "title": "Operation Vittles"
+      },
+      "labels": [
+        "tempelhof",
+        "gatow",
+        "tegel"
+      ],
+      "card": {
+        "kind": "fact",
+        "kicker": "Cargo",
+        "title": "Coal, flour, milk",
+        "body": "Coal was the heaviest load: fuel for power and heat through the winter.",
+        "at": 0.35
+      }
+    },
+    {
+      "vo": "On one day in April nineteen forty-nine, the airlift delivers almost thirteen thousand tons.",
+      "caption": "On one day in April 1949, the airlift delivers almost 13,000 tons.",
+      "camera": {
+        "to": [
+          "frankfurt",
+          "hamburg",
+          "berlin"
+        ],
+        "tilt": 24,
+        "pad": 1.4
+      },
+      "year": 1949,
+      "header": {
+        "kicker": "16 April 1949",
+        "title": "The Easter Parade"
+      },
+      "card": {
+        "kind": "stat",
+        "kicker": "In 24 hours",
+        "value": 12941,
+        "unit": " t",
+        "label": "of cargo flown into Berlin",
+        "at": 0.3
+      }
+    },
+    {
+      "vo": "On the twelfth of May, nineteen forty-nine, the Soviets lift the blockade. The airlift has flown in about two point three million tons.",
+      "caption": "On 12 May 1949, the Soviets lift the blockade. The airlift has flown in about 2.3 million tons.",
+      "camera": {
+        "to": "berlin",
+        "zoom": 2.0,
+        "tilt": 30
+      },
+      "header": {
+        "kicker": "12 May 1949",
+        "title": "Blockade Lifted"
+      },
+      "labels": [
+        "berlin"
+      ],
+      "stamp": {
+        "text": "Lifted",
+        "at": 0.35,
+        "rot": 7
+      },
+      "card": {
+        "kind": "stat",
+        "kicker": "In total",
+        "value": 2.3,
+        "unit": " million t",
+        "label": "of food, fuel and supplies",
+        "at": 0.55
+      }
+    }
+  ],
+  "sources": [
+    {
+      "title": "Wikipedia: Berlin Blockade",
+      "url": "https://en.wikipedia.org/wiki/Berlin_Blockade"
+    },
+    {
+      "title": "Wikipedia: Berlin Air Safety Center / air corridors",
+      "url": "https://en.wikipedia.org/wiki/Berlin_Air_Safety_Center"
+    }
+  ],
+  "notes": "Zone outline and corridor lines are schematic. Inbound flights used the north and south corridors and returned by the central one. Check every figure against the sources before publishing."
+}
